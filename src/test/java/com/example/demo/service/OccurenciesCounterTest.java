@@ -14,7 +14,7 @@ public class OccurenciesCounterTest {
 	@Test
 	public void occurenciesShouldBeCountedProperly() {
 		
-		OccurenciesCounter counter = new OccurenciesCounter();
+		OccurenciesCounter counter = new LinearOccurenciesCounter();
 		String[] stringArray = {"a","b","b","b","b","b","d","h","h","h","p"};
 		Map<String, Integer> result = counter.count(stringArray);
 		
