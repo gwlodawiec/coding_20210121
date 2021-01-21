@@ -9,7 +9,9 @@ import java.util.Map;
 import org.hamcrest.collection.IsMapContaining;
 import org.junit.jupiter.api.Test;
 
-public class OccurenciesCounterTest {
+import com.example.demo.utils.StringArrayProvider;
+
+public class LinearOccurenciesCounterTest {
 	
 	@Test
 	public void occurenciesShouldBeCountedProperly() {
@@ -33,6 +35,19 @@ public class OccurenciesCounterTest {
 		assertThat(result, IsMapContaining.hasEntry("h", 3));
 		assertThat(result, IsMapContaining.hasEntry("p", 1));
 		
+		result = counter.count(StringArrayProvider.getSortedArray(1000));
+		assertThat(result.isEmpty(), is(false));
+		
+	}
+	
+	@Test
+	public void emptyInputShouldReturnEmptyResultMap() {
+		OccurenciesCounter counter = new LinearOccurenciesCounter();
+		Map<String, Integer> result = counter.count(null);
+		assertThat(result.isEmpty(), is(true));
+		
+		result = counter.count(new String[0]);
+		assertThat(result.isEmpty(), is(true));
 	}
 
 }
