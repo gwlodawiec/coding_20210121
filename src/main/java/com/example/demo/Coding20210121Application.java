@@ -21,7 +21,7 @@ public class Coding20210121Application {
 		OccurenciesCounter linearCounter = new LinearOccurenciesCounter();
 		OccurenciesCounter betterCounter = new BetterOccurenciesCounter();
 		OccurenciesCounter anotherCounter = new AnotherOccurenciesCounter();
-		String[] input = StringArrayProvider.getSortedArray(100000);
+		String[] input = StringArrayProvider.getSortedArray(5000000);
 		// String[] input = {"a","b","b","b","b","b","d","h","h","h","p","p"};
 
 		int loops = 100;

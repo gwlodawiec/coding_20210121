@@ -16,11 +16,12 @@ public class AnotherOccurenciesCounter implements OccurenciesCounter {
 		if (input == null || input.length == 0) {
 			return result;
 		}
-		List<String> asList = Arrays.asList(input);
+		//List<String> asList = Arrays.asList(input);
 		int currIndex = -1;
 		for (String elem : StringArrayProvider.AVAILABLE_CHARS) {
 			//int index = Arrays.binarySearch(input, 0, input.length, elem);
-			int index = asList.lastIndexOf(elem);
+			//int index = asList.lastIndexOf(elem);
+			int index = StringArrayProvider.lastIndexOf(input, elem);
 			if(index > -1) {
 				result.put(elem, index - currIndex);
 				currIndex = index;
