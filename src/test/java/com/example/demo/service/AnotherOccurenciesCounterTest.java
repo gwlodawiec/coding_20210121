@@ -16,7 +16,7 @@ public class AnotherOccurenciesCounterTest {
 	@Test
 	public void occurenciesShouldBeCountedProperly() {
 		
-		OccurenciesCounter counter = new AnotherOccurenciesCounter2();
+		OccurenciesCounter counter = new AnotherOccurenciesCounter();
 		String[] stringArray = {"a","b","b","b","b","b","d","h","h"};
 		Map<String, Integer> result = counter.count(stringArray);
 		

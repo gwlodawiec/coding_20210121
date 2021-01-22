@@ -5,8 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.example.demo.utils.StringArrayProvider;
-
 public class BetterOccurenciesCounter implements OccurenciesCounter {
 
 	@Override
@@ -25,16 +23,6 @@ public class BetterOccurenciesCounter implements OccurenciesCounter {
 			result.put(elem, index - currIndex);
 			currIndex = index;
 		}
-		
-		
-//		for (String elem : StringArrayProvider.AVAILABLE_CHARS) {
-//			//int index = Arrays.binarySearch(input, 0, input.length, elem);
-//			int index = asList.lastIndexOf(elem);
-//			if(index > -1) {
-//				result.put(elem, index - currIndex);
-//				currIndex = index;
-//			}
-//		}
 		
 		return result;
 	}

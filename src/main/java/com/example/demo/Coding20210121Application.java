@@ -6,7 +6,7 @@ import java.time.Instant;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.example.demo.service.AnotherOccurenciesCounter2;
+import com.example.demo.service.AnotherOccurenciesCounter;
 import com.example.demo.service.BetterOccurenciesCounter;
 import com.example.demo.service.LinearOccurenciesCounter;
 import com.example.demo.service.OccurenciesCounter;
@@ -19,8 +19,8 @@ public class Coding20210121Application {
 		SpringApplication.run(Coding20210121Application.class, args);
 
 		OccurenciesCounter linearCounter = new LinearOccurenciesCounter();
-		OccurenciesCounter betterCounter = new AnotherOccurenciesCounter2();
-		OccurenciesCounter anotherCounter = new BetterOccurenciesCounter();
+		OccurenciesCounter betterCounter = new BetterOccurenciesCounter();
+		OccurenciesCounter anotherCounter = new AnotherOccurenciesCounter();
 		String[] input = StringArrayProvider.getSortedArray(100000);
 		// String[] input = {"a","b","b","b","b","b","d","h","h","h","p","p"};
 
@@ -30,16 +30,16 @@ public class Coding20210121Application {
 		long elapsedTimeAnother = 0L;
 		for (int i = 0; i < loops; i++) {
 			Instant startLinear = Instant.now();
-			betterCounter.count(input);
-			Instant after1 = Instant.now();
 			linearCounter.count(input);
-			Instant after2 = Instant.now();
+			Instant afterLinear = Instant.now();
+			betterCounter.count(input);
+			Instant afterBetter = Instant.now();
 			anotherCounter.count(input);
 			Instant stop = Instant.now();
 
-			elapsedTimeBetter = elapsedTimeBetter + Duration.between(startLinear, after1).toNanos();
-			elapsedTimeLinear = elapsedTimeBetter + Duration.between(after1, after2).toNanos();
-			elapsedTimeAnother = elapsedTimeAnother + Duration.between(after2, stop).toNanos();
+			elapsedTimeLinear = elapsedTimeBetter + Duration.between(startLinear, afterLinear).toNanos();
+			elapsedTimeBetter = elapsedTimeBetter + Duration.between(afterLinear, afterBetter).toNanos();
+			elapsedTimeAnother = elapsedTimeAnother + Duration.between(afterBetter, stop).toNanos();
 
 		}
 

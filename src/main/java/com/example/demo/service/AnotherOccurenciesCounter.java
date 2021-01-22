@@ -7,7 +7,7 @@ import java.util.Map;
 
 import com.example.demo.utils.StringArrayProvider;
 
-public class AnotherOccurenciesCounter2 implements OccurenciesCounter {
+public class AnotherOccurenciesCounter implements OccurenciesCounter {
 
 	@Override
 	public Map<String, Integer> count(String[] input) {
